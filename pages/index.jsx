@@ -1,26 +1,21 @@
-import { useEffect } from "react";
-import Head from "next/head";
-import styled from "styled-components";
-import { Play } from "@styled-icons/fa-solid";
-import {
-  Youtube,
-  Soundcloud,
-  Facebook,
-  Instagram,
-} from "@styled-icons/entypo-social";
-import { down } from "styled-breakpoints";
-import { motion } from "framer-motion";
-import Slider from "react-slick";
+import { useEffect } from 'react';
+import Head from 'next/head';
+import styled from 'styled-components';
+import { Play } from '@styled-icons/fa-solid';
+import { Youtube, Facebook, Instagram } from '@styled-icons/entypo-social';
+import { down } from 'styled-breakpoints';
+import { motion } from 'framer-motion';
+import Slider from 'react-slick';
 
-import Album from "../components/album";
-import Photo from "../components/photo";
-import PlayList from "../components/playlist";
+import Album from '../components/album';
+import Photo from '../components/photo';
+import PlayList from '../components/playlist';
 
 export default function Home() {
   let audio = null;
 
   useEffect(() => {
-    audio = new Audio("sfx.mp3");
+    audio = new Audio('sfx.mp3');
     audio.loop = true;
   }, []);
 
@@ -31,7 +26,7 @@ export default function Home() {
       </Head>
       <Navbar>
         <SocialLink href="/">
-          <img src="logo.png" width="150" />
+          <img src="logo.png" width="150" alt="DPR" />
         </SocialLink>
         <SocialLink href="https://www.youtube.com/channel/UCtG5oKSlksz-QmD_2uI4WBw">
           <Youtube width={36} />
@@ -49,7 +44,7 @@ export default function Home() {
           whileHover={{
             x: 1,
             y: -1,
-            transition: { type: "spring", stiffness: 1000, damping: 0.5 },
+            transition: { type: 'spring', stiffness: 1000, damping: 0.5 },
           }}
           onMouseEnter={() => {
             audio && audio.play();
@@ -63,7 +58,7 @@ export default function Home() {
           </Blur>
         </Video>
 
-        <Header style={{ marginTop: "110px" }}>
+        <Header style={{ marginTop: '110px' }}>
           <Title>Dream Perfect Regime</Title>
           <Description>
             Dream Perfect Regime (DPR) is an independent, multi-genre music and
@@ -75,7 +70,7 @@ export default function Home() {
           </Description>
         </Header>
 
-        <Header style={{ marginTop: "210px" }}>
+        <Header style={{ marginTop: '210px' }}>
           <Title>Art / Music Works</Title>
           <Description>
             그냥 크게 봐서, 예술을 너무 좋아하는 사람들의 집합체라고 생각하면
@@ -135,21 +130,23 @@ export default function Home() {
         </Slider>
       </SliderContainer>
 
-      <style jsx global>{`
-        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+      <style jsx global>
+        {`
+          @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: Poppins, sans-serif;
-          background-color: #060608;
-        }
+          html,
+          body {
+            padding: 0;
+            margin: 0;
+            font-family: Poppins, sans-serif;
+            background-color: #060608;
+          }
 
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
+          * {
+            box-sizing: border-box;
+          }
+        `}
+      </style>
     </>
   );
 }
@@ -164,7 +161,7 @@ const Navbar = styled.nav`
   justify-content: center;
   background-color: #343841;
 
-  ${down("tablet")} {
+  ${down('tablet')} {
     flex-direction: row;
     justify-content: space-around;
     position: relative;
@@ -179,7 +176,7 @@ const Main = styled.main`
   padding-left: 120px;
   padding-right: 20px;
 
-  ${down("tablet")} {
+  ${down('tablet')} {
     padding-left: 20px;
   }
 `;
@@ -188,7 +185,7 @@ const SliderContainer = styled.div`
   padding-left: 150px;
   padding-right: 50px;
 
-  ${down("tablet")} {
+  ${down('tablet')} {
     padding-left: 50px;
   }
 `;
@@ -209,7 +206,7 @@ const Blur = styled.span`
   justify-content: center;
   transition: 0.4s ease-out;
 
-  ${down("tablet")} {
+  ${down('tablet')} {
     height: 50px;
     width: 50px;
 
@@ -237,7 +234,7 @@ const Video = styled(motion.a)`
     }
   }
 
-  ${down("tablet")} {
+  ${down('tablet')} {
     height: 320px;
   }
 `;

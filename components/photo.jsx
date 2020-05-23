@@ -1,26 +1,26 @@
-import styled from "styled-components";
-import { down } from "styled-breakpoints";
+import styled from 'styled-components';
+import { down } from 'styled-breakpoints';
 
-const Photo = ({ title, description, img, inverted }) => {
-  return (
-    <Container inverted={inverted}>
-      <Image src={img} />
-      <Description>
-        <Title>{title}</Title>
-        <Text>{description}</Text>
-      </Description>
-    </Container>
-  );
-};
+const Photo = ({
+  title, description, img, inverted,
+}) => (
+  <Container inverted={inverted}>
+    <Image src={img} />
+    <Description>
+      <Title>{title}</Title>
+      <Text>{description}</Text>
+    </Description>
+  </Container>
+);
 
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
-  flex-direction: ${(props) => (props.inverted ? "row-reverse" : "row")};
+  flex-direction: ${(props) => (props.inverted ? 'row-reverse' : 'row')};
   margin: 150px auto;
   align-items: center;
 
-  ${down("tablet")} {
+  ${down('tablet')} {
   }
 `;
 

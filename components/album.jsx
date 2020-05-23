@@ -1,34 +1,36 @@
-import styled from "styled-components";
-import { useInView } from "react-intersection-observer";
-import { motion } from "framer-motion";
-import { down } from "styled-breakpoints";
+import styled from 'styled-components';
+import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
+import { down } from 'styled-breakpoints';
 
 const container = {
   visible: {
-    y: "-20%",
+    y: '-20%',
     transition: {
-      type: "spring",
+      type: 'spring',
       stiffness: 50,
       damping: 5,
     },
   },
   hidden: {
-    y: "0%",
+    y: '0%',
   },
 };
 
-const Album = ({ title, date, img, href }) => {
-  const [ref, inView, entry] = useInView({ threshold: 0.1 });
+const Album = ({
+  title, date, img, href,
+}) => {
+  const [ref, inView] = useInView({ threshold: 0.1 });
 
   return (
     <Container
       ref={ref}
-      animate={inView ? "visible" : "hidden"}
+      animate={inView ? 'visible' : 'hidden'}
       variants={container}
       href={href}
       whileHover={{
         scale: 1.1,
-        transition: { type: "spring", stiffness: 100, damping: 10 },
+        transition: { type: 'spring', stiffness: 100, damping: 10 },
       }}
     >
       <Image src={img} />
@@ -45,7 +47,7 @@ const Container = styled(motion.a)`
   text-decoration: none;
   transform: translate3d(0px, -13.36%, 0px);
 
-  ${down("tablet")} {
+  ${down('tablet')} {
     width: 100vw;
   }
 `;
